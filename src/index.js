@@ -46,6 +46,11 @@ io.on("connection", (socket) => {
         console.log(`${socket.id} disconnected`)
         onlineUsers = onlineUsers.filter(user => user.socketId !== socket.id)
     })
+
+    socket.on('openChatWithUser', payload=>{
+        
+        socket.join(payload)
+    })
 });
 
 // We are starting our HTTP server and NOT our Express app
